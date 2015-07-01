@@ -1,0 +1,37 @@
+{
+  "name": "Transaction",
+  "base": "PersistedModel",
+  "strict": false,
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "comments": "name of the product sold/bought"
+    },
+    "date": {
+      "type": "date",
+      "required": true
+    },
+    "canceled": {
+      "type": "boolean",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "author": {
+      "type": "hasOne",
+      "model": "User"
+    },
+    "operations": {
+      "type": "hasMany",
+      "model": "Operation"
+    }
+  },
+  "acls": [],
+  "methods": []
+}

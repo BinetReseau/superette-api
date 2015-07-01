@@ -1,0 +1,38 @@
+{
+  "name": "Event",
+  "base": "PersistedModel",
+  "strict": false,
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "closed": {
+      "type": "boolean",
+      "required": true,
+      "comments": "set to true when the event is finished to prevent from adding new transactions"
+    },
+    "flushed": {
+      "type": "boolean",
+      "required": true,
+      "comments": "set to true when all the transactions have been applied."
+    }
+  },
+  "validations": [],
+  "relations": {
+    "transactions": {
+      "type": "hasMany",
+      "model": "Transaction"
+    },
+    "group": {
+      "type": "belongsTo",
+      "model": "Group"
+    }
+  },
+  "acls": [],
+  "methods": []
+}

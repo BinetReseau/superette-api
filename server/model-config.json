@@ -31,5 +31,35 @@
   "Role": {
     "dataSource": "db",
     "public": false
+  },
+  "Trigram": {
+    "dataSource": "db",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
+  },
+  "Group": {
+    "dataSource": "db",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
+  },
+  "Operation": {
+    "dataSource": "db",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
+  },
+  "Transaction": {
+    "dataSource": "db",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
+  },
+  "Event": {
+    "dataSource": null,
+    "public": true,
+    "$promise": {},
+    "$resolved": true
   }
 }

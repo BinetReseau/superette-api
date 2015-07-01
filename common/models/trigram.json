@@ -1,0 +1,26 @@
+{
+  "name": "Trigram",
+  "base": "PersistedModel",
+  "strict": false,
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "id": true,
+      "required": true,
+      "comments": "three uppercase letters eg BOB"
+    },
+    "money": {
+      "type": "number",
+      "required": true,
+      "comments": "amont of money available"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": []
+}
