@@ -1,4 +1,5 @@
 *.csv
+*.sqlite*
 *.dat
 *.iml
 *.log
