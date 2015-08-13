@@ -38,7 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'platalbank_core'.
+    'platalbank_core'
 )
 
 MIDDLEWARE_CLASSES = (
