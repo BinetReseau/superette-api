@@ -85,7 +85,12 @@ DATABASES = {
     }
 }
 
-
+AUTHENTICATION_BACKENDS = (
+    'platalbank_auth.backends.FrankizLDAPBackend',
+    'django.contrib.auth.backends.ModelBackend',
+)
+AUTH_LDAP_SERVER_URI = "ldap://frankiz"
+AUTH_LDAP_USER_DN_TEMPLATE = "uid=%(user)s,ou=eleves,dc=frankiz,dc=net"
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
