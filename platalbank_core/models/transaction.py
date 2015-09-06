@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+from rest_framework import serializers, viewsets
 
 class Transaction(models.Model):
     # when the transaction has been freshly created. No-one has accepted/rejected it yet.
