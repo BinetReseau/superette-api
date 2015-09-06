@@ -29,3 +29,14 @@ class Transaction(models.Model):
     event = models.ForeignKey("Event")
 
     # TODO: author = models.ForeignKey(settings.AUTH_USER_MODEL)
+
+
+class TransactionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Transaction
+
+class TransactionViewSet(viewsets.ModelViewSet):
+    queryset = Transaction.objects.all()
+    serializer_class = TransactionSerializer
+
+            
