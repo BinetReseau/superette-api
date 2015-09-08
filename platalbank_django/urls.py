@@ -15,7 +15,20 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from rest_framework import routers
+
+from platalbank_core.models.event import EventViewSet
+from platalbank_core.models.transaction import TransactionViewSet
+from platalbank_core.models.account import AccountViewSet
+
+
+router = routers.DefaultRouter()
+
+router.register("event", EventViewSet)
+router.register("transaction", TransactionViewSet)
+router.register("account", AccountViewSet)
 
 urlpatterns = [
+    url(r'^api/', include(router.urls)),
     url(r'^admin/', include(admin.site.urls)),
 ]

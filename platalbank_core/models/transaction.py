@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+from rest_framework import serializers, viewsets
 
 class Transaction(models.Model):
     # when the transaction has been freshly created. No-one has accepted/rejected it yet.
@@ -29,3 +30,14 @@ class Transaction(models.Model):
     event = models.ForeignKey("Event")
 
     # TODO: author = models.ForeignKey(settings.AUTH_USER_MODEL)
+
+
+class TransactionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Transaction
+
+class TransactionViewSet(viewsets.ModelViewSet):
+    queryset = Transaction.objects.all()
+    serializer_class = TransactionSerializer
+
+            
