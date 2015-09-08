@@ -22,14 +22,14 @@ Puis utilisez `pip` pour télécharger les paquets python nécessaires:
 
 First, generate the migration file:
 
-    python manage.py makemigrations
+    python3 manage.py makemigrations
 
 Then, create the db.sqlite3 file using this migration:
 
-    python manage.py migrate
+    python3 manage.py migrate
 
 ## Running the server
 
 Once you have the db.sqlite3 file, you are ready to run the server:
 
-    python manage.py runserver
+    python3 manage.py runserver
