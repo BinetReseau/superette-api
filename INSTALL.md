@@ -8,6 +8,10 @@ D'abord, installez `python3` et `pip`:
     # Sous Archlinux
     pacman -S python python-pip libsasl # et si vous préférez l'installer avec pacman, python-django
 
+    # Sous OSX, passer par brew. Si confronté à un problème avec sasl, tenter ceci :
+    xcrun --show-sdk-path
+    sudo ln -s <the_path_from_above_command>/usr/include /usr/include
+
 Puis utilisez `pip` pour télécharger les paquets python nécessaires:
 
     pip3 install -r requirements.txt
