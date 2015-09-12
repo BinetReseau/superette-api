@@ -31,7 +31,6 @@ class Transaction(models.Model):
 
     # TODO: author = models.ForeignKey(settings.AUTH_USER_MODEL)
 
-
 class TransactionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Transaction
@@ -39,5 +38,3 @@ class TransactionSerializer(serializers.ModelSerializer):
 class TransactionViewSet(viewsets.ModelViewSet):
     queryset = Transaction.objects.all()
     serializer_class = TransactionSerializer
-
-            
