@@ -8,6 +8,9 @@ class Account(models.Model):
     short_name = models.CharField(max_length=128)
     # TODO: owner = models.ForeignKey("LegalPerson")
 
+    def __str__(self):
+        return self.short_name
+
 class AccountSerializer(serializers.ModelSerializer):
     class Meta:
         model = Account
