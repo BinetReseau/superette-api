@@ -14,6 +14,7 @@ class Account(models.Model):
 class AccountSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Account
+        fields = ('url', 'id', 'balance', 'description', 'short_name')
 
 class AccountViewSet(viewsets.ModelViewSet):
     queryset = Account.objects.all()
