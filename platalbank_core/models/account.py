@@ -1,6 +1,4 @@
 from django.db import models
-from rest_framework import serializers
-from rest_framework import viewsets
 
 class Account(models.Model):
     balance = models.IntegerField() # Number of cents owned
@@ -10,12 +8,3 @@ class Account(models.Model):
 
     def __str__(self):
         return self.short_name
-
-class AccountSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = Account
-        fields = ('url', 'id', 'balance', 'description', 'short_name')
-
-class AccountViewSet(viewsets.ModelViewSet):
-    queryset = Account.objects.all()
-    serializer_class = AccountSerializer

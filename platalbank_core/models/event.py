@@ -1,5 +1,4 @@
 from django.db import models
-from rest_framework import serializers, viewsets
 
 class Event(models.Model):
     label = models.CharField(max_length=1024)
@@ -11,12 +10,3 @@ class Event(models.Model):
 
     def __str__(self):
         return self.label
-
-class EventSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = Event
-        fields = ('url', 'id', 'label', 'through_khube', 'writable')
-
-class EventViewSet(viewsets.ModelViewSet):
-    queryset = Event.objects.all()
-    serializer_class = EventSerializer
