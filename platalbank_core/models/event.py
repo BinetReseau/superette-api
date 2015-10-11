@@ -9,6 +9,9 @@ class Event(models.Model):
     writable = models.BooleanField()
     # TODO: owner = models.ForeignKey("LegalPerson")
 
+    def __str__(self):
+        return self.label
+
 class EventSerializer(serializers.ModelSerializer):
     class Meta:
         model = Event

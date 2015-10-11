@@ -31,6 +31,9 @@ class Transaction(models.Model):
 
     # TODO: author = models.ForeignKey(settings.AUTH_USER_MODEL)
 
+    def __str__(self):
+        return self.label
+
 class TransactionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Transaction
