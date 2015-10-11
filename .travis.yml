@@ -12,7 +12,7 @@ after_success: coveralls
 notifications:
   irc:
     channels:
-      - "irc.rezosup.org#platalbank"
+      - secure: mP9342Rv01MOqd+93sf6Xnub9R1TGYVAg6N2QQwB16eIm4BrTog7L5Ctlvupd0wbroY+qixte3HuB/s+lgahpyzXG0sUL3ZmPQXCWhbMwnJ+r7iI2uQpYYk/cLX7b7skipDHi+qseyFVgJvmOI7mbbi5LY3UkScVBWtvc/jtvpkFBar8nVXv/ZCABsOwzYWVze93leGIBfuk79IsTHGB2oOXhgMwii3N/mw6bAFrwfIOGu6fcoSdOcsNj9qvoYc+v/hfSnEaFjrvwENZ+NtXGWVMel23saRzJJkYS+kLtT4UuuOuYD39claWvdOUJq7VB0u/IPGz8wMH+/C+CKu26FIleOcpFpcDiBXkX/iEZUp2saCR5cjIcsDTBCQWYYd/gnvvexvQwfyUmiMdhTWBCIYkVt9cTZI57vDCKrXlqjwtyPAg+U7HO60h0Vcf8USpA611eysyFbWdhAEjV6VzTAYaSoznLmoDSkP46U4hD3Cw4ap98Y4pBxWYlaF52qdZtNlKXw0YR1OloZDD3iNCvZ08ya6Qa3G0bHdRkrLyO7/txpN9bFEI14XrnpGkDV66f3NcyPexgPsystbcSymjSHbwBCcuZxh7mX5RWeK5eOrdcEHh8GW5NqyWMk+ufnCB+DhSPmxFrus+rrpnpakXGg8uMleKGUxf64HSwUg75w0=
     template:
       - "%{repository_name}/%{branch} %{commit} %{author}: %{message}"
     on_success: always
