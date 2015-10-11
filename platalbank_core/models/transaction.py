@@ -34,7 +34,7 @@ class Transaction(models.Model):
     def __str__(self):
         return self.label
 
-class TransactionSerializer(serializers.ModelSerializer):
+class TransactionSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Transaction
 

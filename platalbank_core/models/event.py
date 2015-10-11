@@ -12,7 +12,7 @@ class Event(models.Model):
     def __str__(self):
         return self.label
 
-class EventSerializer(serializers.ModelSerializer):
+class EventSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Event
 
