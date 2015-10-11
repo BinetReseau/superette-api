@@ -1,6 +1,5 @@
 from platalbank_core.models import Event, Transaction, Account
 
-from decimal import Decimal
 from rest_framework.test import APITestCase
 
 def reload(obj):
