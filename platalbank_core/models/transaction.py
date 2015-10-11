@@ -34,9 +34,10 @@ class Transaction(models.Model):
     def __str__(self):
         return self.label
 
-class TransactionSerializer(serializers.ModelSerializer):
+class TransactionSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Transaction
+        fields = ('url', 'id', 'state', 'amount', 'label', 'debited_account', 'credited_account', 'event')
 
 class TransactionViewSet(viewsets.ModelViewSet):
     queryset = Transaction.objects.all()

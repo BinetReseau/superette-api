@@ -11,9 +11,10 @@ class Account(models.Model):
     def __str__(self):
         return self.short_name
 
-class AccountSerializer(serializers.ModelSerializer):
+class AccountSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Account
+        fields = ('url', 'id', 'balance', 'description', 'short_name')
 
 class AccountViewSet(viewsets.ModelViewSet):
     queryset = Account.objects.all()
