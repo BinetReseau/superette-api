@@ -29,3 +29,18 @@ class TransactionTests(APITestCase):
         self.accA, self.accB = reload(self.accA), reload(self.accB)
         self.assertEqual(self.accA.balance, 3700)
         self.assertEqual(self.accB.balance, 1837)
+
+    def test_not_duplicate_transfer(self):
+        self.accA, self.accB = reload(self.accA), reload(self.accB)
+        self.assertEqual(self.accA.balance, 4200)
+        self.assertEqual(self.accB.balance, 1337)
+        Transaction.objects.create(
+            amount=500,
+            label='Test',
+            debited_account=self.accA,
+            credited_account=self.accB,
+            event=self.event
+        ).save()
+        self.accA, self.accB = reload(self.accA), reload(self.accB)
+        self.assertEqual(self.accA.balance, 3700)
+        self.assertEqual(self.accB.balance, 1837)

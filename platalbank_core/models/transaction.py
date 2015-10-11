@@ -37,10 +37,11 @@ class Transaction(models.Model):
 
     @django.db.transaction.atomic()
     def save(self, *args, **kwargs):
-        self.debited_account.balance -= self.amount
-        self.credited_account.balance += self.amount
-        self.debited_account.save()
-        self.credited_account.save()
+        if not self.pk:
+            self.debited_account.balance -= self.amount
+            self.credited_account.balance += self.amount
+            self.debited_account.save()
+            self.credited_account.save()
         super(Transaction, self).save(*args, **kwargs)
 
 class TransactionSerializer(serializers.HyperlinkedModelSerializer):
