@@ -1,0 +1,1 @@
+[![Build Status](https://travis-ci.org/BinetReseau/platalbank-api.svg?branch=develop)](https://travis-ci.org/BinetReseau/platalbank-api) [![Coverage Status](https://coveralls.io/repos/BinetReseau/platalbank-api/badge.svg?branch=develop&service=github)](https://coveralls.io/github/BinetReseau/platalbank-api?branch=develop)
