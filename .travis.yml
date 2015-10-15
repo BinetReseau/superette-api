@@ -1,14 +1,22 @@
 language: python
+
 python:
   - 3.4
   - 3.5
 
+env:
+  - DJANGO_VERSION=1.8
+  - DJANGO_VERSION=1.9a1
+
 install:
   - pip install coveralls
+  - pip install -q django==$DJANGO_VERSION
   - pip install -r requirements.txt
+
 script: coverage run --source='.' --omit='platalbank_django/wsgi.py' manage.py test
 
 after_success: coveralls
+
 notifications:
   irc:
     channels:
@@ -19,5 +27,6 @@ notifications:
     on_failure: always
     use_notice: true
     skip_join: true
+
   slack:
     secure: pAQ1pe6WSH3AK6IXCj8Vl3zHfCyrxopQcv5SHZo2oxoue8l/IHKGG2CAPFTtnx58OiaME7IBkw8kWaIhwyffi0M5byBvZ28/0mVoPPXFEoFngO/uWPAAvIM/HMML3C4E1HcLJHTbjfk1uvWM9zt83gs31+HZcRf2jlECFqcnDwvfyHqg/BXjFkwiF17kfkKdkyTfMIc+4kvQtIPtR/arBePcAGQ839sIN8X8Ku6cbJrlrpoxkGMFDdtBEsRXKhpgkWbOa2hblSfzOdUtCU3q5pvozjZiGQLPMfqOj3xIGj/1Ox5skBXQ/3SGgPKadWnfwHSvq9+xPaCEiERLPodcb37bBMVQpNYjjoG26nU8TFRFbVVT0Ieaf1S+UXOzvs0cUbSbhud7tndgDj3qh2FGyc7BGJVJXeC/7N9RtvOOrLTT8fWLtaVtoo8SeRCM3FVprpBMriDBx4Pj6g1BEwTLEF2ttN02GGlnlA42vT1sytNj3gAIjeDXebwu3tAzJ6JK5Yp/RUhUXOeQTvzUQvujy0fa679DUELuN+ZMA7L0ELhBI5r8QyBBSxPn0qJazWEWaNj9tn4eQqWCAdPbJC/mrzrI3LsBoLnzSCJU4K5yJ755oH2MsiPe0uHIJ35w57zLsjQHoisMGAI5mFr0lfyGE6nGiBVJIrSmOhh1PHAyoYw=
