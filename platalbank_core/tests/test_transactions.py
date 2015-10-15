@@ -29,6 +29,7 @@ class TransactionTests(APITestCase):
         self.assertEqual(self.accA.balance, 3700)
         self.assertEqual(self.accB.balance, 1837)
 
+    # Test what happens when save is called twice
     def test_not_duplicate_transfer(self):
         self.accA, self.accB = reload(self.accA), reload(self.accB)
         self.assertEqual(self.accA.balance, 4200)
