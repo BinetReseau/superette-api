@@ -1,7 +1,6 @@
 import django.db
 from django.db import models
 from django.conf import settings
-from rest_framework import serializers, viewsets
 
 class Transaction(models.Model):
     # when the transaction has been freshly created. No-one has accepted/rejected it yet.
@@ -43,12 +42,3 @@ class Transaction(models.Model):
             self.debited_account.save()
             self.credited_account.save()
         super(Transaction, self).save(*args, **kwargs)
-
-class TransactionSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = Transaction
-        fields = ('url', 'id', 'state', 'amount', 'label', 'debited_account', 'credited_account', 'event')
-
-class TransactionViewSet(viewsets.ModelViewSet):
-    queryset = Transaction.objects.all()
-    serializer_class = TransactionSerializer
