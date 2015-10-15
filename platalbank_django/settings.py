@@ -107,7 +107,10 @@ USE_L10N = True
 USE_TZ = True
 
 REST_FRAMEWORK = {
-    'PAGE_SIZE': 20
+    'DEFAULT_PERMISSION_CLASSES' :[
+        'rest_framework.permissions.AllowAny', #TODO
+    ],
+    'PAGE_SIZE': 20,
 }
 
 # Static files (CSS, JavaScript, Images)
@@ -117,5 +120,4 @@ STATIC_URL = '/static/'
 
 # CORS headers
 
-CORS_ORIGIN_ALLOW_ALL = False
-
+CORS_ORIGIN_ALLOW_ALL = True
