@@ -2,7 +2,7 @@ import factory
 
 from .. import models
 
-class EventFactory(factory.Factory):
+class EventFactory(factory.DjangoModelFactory):
     class Meta:
         model = models.Event
 

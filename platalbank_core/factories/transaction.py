@@ -5,7 +5,7 @@ from .. import models
 from .account import AccountFactory
 from .event import EventFactory
 
-class TransactionFactory(factory.Factory):
+class TransactionFactory(factory.DjangoModelFactory):
     class Meta:
         model = models.Transaction
 
