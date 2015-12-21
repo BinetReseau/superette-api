@@ -32,6 +32,10 @@ Then, create the db.sqlite3 file using this migration:
 
     python3 manage.py migrate
 
+## Optional: Populating the database with test data
+
+    python3 manage.py populatedb
+
 ## Running the server
 
 Once you have the db.sqlite3 file, you are ready to run the server:
