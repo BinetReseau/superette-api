@@ -10,7 +10,7 @@ class TransactionFactory(factory.DjangoModelFactory):
         model = models.Transaction
 
     state            = models.Transaction.PENDING
-    amount           = factory.fuzzy.FuzzyInteger(1)
+    amount           = factory.fuzzy.FuzzyInteger(1, 1000)
     label            = factory.Faker('sentence')
     debited_account  = factory.SubFactory(AccountFactory)
     credited_account = factory.SubFactory(AccountFactory)
