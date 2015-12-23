@@ -45,7 +45,10 @@ INSTALLED_APPS = (
 )
 
 if DEBUG:
-    INSTALLED_APPS += ('debug_toolbar',)
+    INSTALLED_APPS += (
+        'debug_toolbar',
+        'platalbank_test',
+    )
 
 MIDDLEWARE_CLASSES = (
     'corsheaders.middleware.CorsMiddleware',
