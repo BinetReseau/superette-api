@@ -3,6 +3,7 @@ djangorestframework
 django-cors-headers
 factory_boy
 django-debug-toolbar
+django-filter
 
 # git+https://github.com/rbarrois/python-ldap.git@py3
 # django-auth-ldap
