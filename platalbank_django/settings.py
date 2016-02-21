@@ -117,6 +117,11 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.AllowAny', #TODO
     ],
     'PAGE_SIZE': 20,
+
+    'DEFAULT_FILTER_BACKENDS': (
+        'rest_framework.filters.DjangoFilterBackend',
+        'rest_framework.filters.SearchFilter'
+    )
 }
 
 # Static files (CSS, JavaScript, Images)
