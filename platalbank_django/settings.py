@@ -16,7 +16,7 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
-AUTH_USER_MODEL = 'platalbank_auth.User'
+#AUTH_USER_MODEL = 'platalbank_auth.User'
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
@@ -33,7 +33,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = (
     'django.contrib.auth',
-    'platalbank_auth',
+#    'platalbank_auth',
     'django.contrib.admin',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -93,10 +93,10 @@ DATABASES = {
     }
 }
 
-AUTHENTICATION_BACKENDS = (
+#AUTHENTICATION_BACKENDS = (
 #    'platalbank_auth.backends.FrankizLDAPBackend',
-    'django.contrib.auth.backends.ModelBackend',
-)
+#    'django.contrib.auth.backends.ModelBackend',
+#)
 AUTH_LDAP_SERVER_URI = "ldap://frankiz"
 AUTH_LDAP_USER_DN_TEMPLATE = "uid=%(user)s,ou=eleves,dc=frankiz,dc=net"
 # Internationalization
