@@ -16,7 +16,7 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
-AUTH_USER_MODEL = 'platalbank_auth.User'
+#AUTH_USER_MODEL = 'platalbank_auth.User'
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
@@ -33,7 +33,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = (
     'django.contrib.auth',
-    'platalbank_auth',
+#    'platalbank_auth',
     'django.contrib.admin',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -93,10 +93,10 @@ DATABASES = {
     }
 }
 
-AUTHENTICATION_BACKENDS = (
+#AUTHENTICATION_BACKENDS = (
 #    'platalbank_auth.backends.FrankizLDAPBackend',
-    'django.contrib.auth.backends.ModelBackend',
-)
+#    'django.contrib.auth.backends.ModelBackend',
+#)
 AUTH_LDAP_SERVER_URI = "ldap://frankiz"
 AUTH_LDAP_USER_DN_TEMPLATE = "uid=%(user)s,ou=eleves,dc=frankiz,dc=net"
 # Internationalization
@@ -114,9 +114,15 @@ USE_TZ = True
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES' :[
-        'rest_framework.permissions.AllowAny', #TODO
+        #'rest_framework.permissions.AllowAny', #TODO
+        'rest_framework.permissions.IsAuthenticated',
     ],
     'PAGE_SIZE': 20,
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+        'rest_framework.authentication.BasicAuthentication',  # TODO: remove
+        'rest_framework.authentication.SessionAuthentication',  # TODO: remove
+    ),
 
     'DEFAULT_FILTER_BACKENDS': (
         'rest_framework.filters.DjangoFilterBackend',

@@ -20,8 +20,10 @@ from rest_framework import routers
 from platalbank_core.views.event import EventViewSet
 from platalbank_core.views.transaction import TransactionViewSet
 from platalbank_core.views.account import AccountViewSet
+from platalbank_core.views.user import UserViewSet
+from platalbank_core.views.frankiz_user import FrankizUserViewSet
+#from platalbank_auth.views import UserViewSet
 
-from platalbank_auth.views import UserViewSet
 
 router = routers.DefaultRouter()
 
@@ -29,8 +31,10 @@ router.register("event", EventViewSet)
 router.register("transaction", TransactionViewSet)
 router.register("account", AccountViewSet)
 router.register("user", UserViewSet)
+router.register("frankiz_user", FrankizUserViewSet)
 
 urlpatterns = [
     url(r'^api/', include(router.urls)),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^api-token-auth/', 'rest_framework_jwt.views.obtain_jwt_token'),
 ]
