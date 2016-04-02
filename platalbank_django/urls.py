@@ -35,4 +35,5 @@ router.register("user", UserViewSet)
 urlpatterns = [
     url(r'^api/', include(router.urls)),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^api-token-auth/', 'rest_framework_jwt.views.obtain_jwt_token'),
 ]

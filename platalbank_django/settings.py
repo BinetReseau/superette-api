@@ -114,9 +114,15 @@ USE_TZ = True
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES' :[
-        'rest_framework.permissions.AllowAny', #TODO
+        #'rest_framework.permissions.AllowAny', #TODO
+        'rest_framework.permissions.IsAuthenticated',
     ],
     'PAGE_SIZE': 20,
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+        'rest_framework.authentication.BasicAuthentication',  # TODO: remove
+        'rest_framework.authentication.SessionAuthentication',  # TODO: remove
+    ),
 
     'DEFAULT_FILTER_BACKENDS': (
         'rest_framework.filters.DjangoFilterBackend',
