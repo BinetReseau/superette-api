@@ -117,7 +117,9 @@ REST_FRAMEWORK = {
         #'rest_framework.permissions.AllowAny', #TODO
         'rest_framework.permissions.IsAuthenticated',
     ],
-    'PAGE_SIZE': 20,
+    'PAGINATE_BY': 20,
+    'PAGINATE_BY_PARAM': 'page_size',
+    'MAX_PAGINATE_BY': 10000,
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
         'rest_framework.authentication.BasicAuthentication',  # TODO: remove
