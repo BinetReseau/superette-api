@@ -5,10 +5,10 @@ class Account(models.Model):
     DESCRIPTION_MAX_LENGTH = 1024
     SHORT_NAME_MAX_LENGTH = 128
 
-    balance       = models.BigIntegerField() # Number of cents owned
+    balance       = models.BigIntegerField(default = 0) # Number of cents owned
     description   = models.CharField(max_length = DESCRIPTION_MAX_LENGTH)
     short_name    = models.CharField(max_length = SHORT_NAME_MAX_LENGTH)
-    owner        = models.ForeignKey(settings.AUTH_USER_MODEL, related_name="account", default=1)
+    owner        = models.ForeignKey(settings.AUTH_USER_MODEL, related_name="account")
     # TODO: owner = models.ForeignKey("LegalPerson")
 
     def __str__(self):
