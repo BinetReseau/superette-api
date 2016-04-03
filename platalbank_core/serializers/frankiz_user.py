@@ -10,5 +10,5 @@ class FrankizUserSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = FrankizUser
-        fields = ('url', 'hruid', 'first_name', 'last_name', 'email', 'phone', 'room')
+        fields = ('url', 'id', 'hruid', 'first_name', 'last_name', 'email', 'phone', 'room')
         list_serializer_class = FrankizUserListSerializer

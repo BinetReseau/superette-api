@@ -15,7 +15,7 @@ class ShortAccountSerializer(serializers.HyperlinkedModelSerializer):
         model = Account
         fields = ('url', 'id', 'short_name')
 
-class FlatAccountSerializer(serializers.HyperlinkedModelSerializer):
+class FlatAccountSerializer(serializers.ModelSerializer):
     class Meta:
         model  = Account
         fields = ('url', 'id', 'balance', 'description', 'short_name', 'owner')
