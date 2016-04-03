@@ -1,8 +1,9 @@
 from rest_framework import viewsets, decorators
 
-from django.contrib.auth.models import User
 from platalbank_core.serializers import UserSerializer
 from rest_framework.response import Response
+
+from platalbank_core.models import User
 
 
 class UserViewSet(viewsets.ModelViewSet):
