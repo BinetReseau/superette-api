@@ -4,3 +4,4 @@ from django.db import models
 class User(AbstractUser):
     phone = models.CharField(max_length=12, null=True);
     room = models.CharField(max_length=10, null=True);
+    promo = models.CharField(max_length=128, null=True);
