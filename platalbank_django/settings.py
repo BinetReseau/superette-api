@@ -117,7 +117,7 @@ REST_FRAMEWORK = {
         #'rest_framework.permissions.AllowAny', #TODO
         'rest_framework.permissions.IsAuthenticated',
     ],
-    'DEFAULT_PAGINATION_CLASS': 'platalbank_django.pagination.CustomPagination',
+    #'DEFAULT_PAGINATION_CLASS': 'platalbank_django.pagination.CustomPagination',
 
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
