@@ -7,7 +7,7 @@ class Account(models.Model):
 
     balance       = models.BigIntegerField(default = 0) # Number of cents owned
     description   = models.CharField(max_length = DESCRIPTION_MAX_LENGTH)
-    short_name    = models.CharField(max_length = SHORT_NAME_MAX_LENGTH)
+    short_name    = models.CharField(max_length = SHORT_NAME_MAX_LENGTH, unique=True)
     owner        = models.ForeignKey(settings.AUTH_USER_MODEL, related_name="account")
     # TODO: owner = models.ForeignKey("LegalPerson")
 

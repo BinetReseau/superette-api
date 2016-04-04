@@ -9,6 +9,7 @@ from platalbank_core.models import User
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+    filter_fields = ('username', 'promo')
 
     @decorators.list_route()
     def me(self, request):
