@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+import socket
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -20,13 +21,44 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'lhmb7%#jcltxzjo%pl(pay_8t69z^)mci4oppn#a(#6%=9vli8'
-
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
+
+if DEBUG:
+    # SECURITY WARNING: keep the secret key used in production secret!
+    SECRET_KEY = 'lhmb7%#jcltxzjo%pl(pay_8t69z^)mci4oppn#a(#6%=9vli8'
+
+    # Database
+    # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
+
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
+else:
+    # SECURITY WARNING: keep the secret key used in production secret!
+    with open('secret_key.txt') as f:
+            SECRET_KEY = f.read().strip()
+
+    # Database
+    # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
+
+    with open("db_password.txt") as f:
+        _pass = f.read().strip()
+
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'superette',
+            'USER': 'superette',
+            'PASSWORD': _pass,
+            'HOST': 'localhost',
+        }
+    }
 
 
 # Application definition
@@ -83,15 +115,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'platalbank_django.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/1.8/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
 
 #AUTHENTICATION_BACKENDS = (
 #    'platalbank_auth.backends.FrankizLDAPBackend',
@@ -147,3 +170,8 @@ MEDIA_URL = '/assets/media/'
 CORS_ORIGIN_ALLOW_ALL = True
 
 AUTH_USER_MODEL = 'platalbank_core.User'
+
+DEFAULT_FROM_EMAIL = "superette@binets.polytechnique.fr"
+SERVER_EMAIL = DEFAULT_FROM_EMAIL
+
+ADMINS = (("Superette Webmasters", "root+superette@eleves.polytechnique.fr"),)
