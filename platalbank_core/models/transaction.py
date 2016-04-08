@@ -39,8 +39,9 @@ class Transaction(models.Model):
     @django.db.transaction.atomic()
     def save(self, *args, **kwargs):
         if not self.pk:
-            self.debited_account.balance -= self.amount
-            self.credited_account.balance += self.amount
-            self.debited_account.save()
-            self.credited_account.save()
+            if self.debited_account.pk != self.credited_account.pk:
+                self.debited_account.balance -= self.amount
+                self.debited_account.save()
+                self.credited_account.balance += self.amount
+                self.credited_account.save()
         super(Transaction, self).save(*args, **kwargs)
