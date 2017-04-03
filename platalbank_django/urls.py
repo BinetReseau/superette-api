@@ -24,6 +24,7 @@ from platalbank_core.views.user import UserViewSet
 from platalbank_core.views.frankiz_user import FrankizUserViewSet
 #from platalbank_auth.views import UserViewSet
 
+from platalbank_core.views.ldap_user import ldap_search
 
 router = routers.DefaultRouter()
 
@@ -37,4 +38,5 @@ urlpatterns = [
     url(r'^api/', include(router.urls)),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^api-token-auth/', 'rest_framework_jwt.views.obtain_jwt_token'),
+    url(r'^ldap_search$', ldap_search, name="ldap_search")
 ]

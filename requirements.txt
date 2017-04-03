@@ -6,6 +6,7 @@ factory_boy
 django-debug-toolbar
 django-filter
 mysqlclient
+pyldap==2.4.28
 
 # git+https://github.com/rbarrois/python-ldap.git@py3
 # django-auth-ldap
